@@ -26,4 +26,6 @@ EXPOSE $PORT
 
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
-CMD java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer --port $PORT --timeout 10000
+ADD ./algorunner.jar .
+
+CMD java algo-runner -config sample-config.json -kafkaServers 172.27.130.55:32771
