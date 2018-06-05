@@ -28,4 +28,4 @@ ADD . /opt/algorun/
 
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
-CMD java -jar /opt/algorun/algo-runner.jar -config sample-config.json -kafkaServers 172.27.130.55:32771
+CMD java -jar /opt/algorun/algo-runner.jar -config /opt/algorun/sample-config.json -kafkaServers 172.27.130.55:32771
