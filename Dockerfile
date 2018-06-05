@@ -24,7 +24,7 @@ WORKDIR /opt/corenlp
 ENV PORT 9000
 EXPOSE $PORT
 
-ADD ./algo-runner.jar /opt/algorun/
+ADD . /opt/algorun/
 
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
