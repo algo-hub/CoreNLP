@@ -24,8 +24,8 @@ WORKDIR /opt/corenlp
 ENV PORT 9000
 EXPOSE $PORT
 
-ADD ./algorunner.jar /opt/algorun/
+ADD ./algo-runner.jar /opt/algorun/
 
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
-CMD java /opt/algorun/algo-runner.jar -config sample-config.json -kafkaServers 172.27.130.55:32771
+CMD java -jar /opt/algorun/algo-runner.jar -config sample-config.json -kafkaServers 172.27.130.55:32771
