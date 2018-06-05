@@ -7,7 +7,8 @@ RUN apk add --update --no-cache \
 	py-curl \
 	git \
 	unzip \
-	wget
+	wget \
+	bash
 
 # install geturl script to retrieve the most current download URL of CoreNLP
 WORKDIR /opt/
@@ -21,11 +22,11 @@ RUN wget $(/opt/grepurl/grepurl -r 'zip$' -a http://stanfordnlp.github.io/CoreNL
 
 WORKDIR /opt/corenlp
 
+RUN export CLASSPATH="`find . -name '*.jar'`"
+
 ENV PORT 9000
 EXPOSE $PORT
 
 ADD . /opt/algorun/
 
-RUN export CLASSPATH="`find . -name '*.jar'`"
-
-CMD java -jar /opt/algorun/algo-runner.jar -config /opt/algorun/sample-config.json -kafkaServers 172.27.130.55:32771
+CMD java -Xmx4g -jar /opt/algorun/algo-runner.jar -config /opt/algorun/sample-config.json -kafkaServers 172.27.130.55:32771
