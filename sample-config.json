@@ -5,7 +5,7 @@
   "pipelineUrlName": "Pipeline-1",
   "algoOwnerUserName": "itsmarts",
   "algoUrlName": "CoreNLP-Sentiment-Analysis",
-  "entrypoint": "java -mx4g -cp \"*\" edu.stanford.nlp.pipeline.StanfordCoreNLPServer --port $PORT --timeout 10000",
+  "entrypoint": "java -mx4g -cp \"/opt/corenlp/*\" edu.stanford.nlp.pipeline.StanfordCoreNLPServer --port $PORT --timeout 10000",
   "algoParams": [
     {
       "sortOrder": 1,
