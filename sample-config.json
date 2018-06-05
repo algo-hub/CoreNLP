@@ -1,0 +1,139 @@
+{
+  "endpointOwnerUserName": "itsmarts",
+  "endpointUrlName": "Endpoint-Public",
+  "pipelineOwnerUserName": "itsmarts",
+  "pipelineUrlName": "Pipeline-1",
+  "algoOwnerUserName": "itsmarts",
+  "algoUrlName": "CoreNLP-Sentiment-Analysis",
+  "entrypoint": "java -mx4g -cp \"*\" edu.stanford.nlp.pipeline.StanfordCoreNLPServer --port $PORT --timeout 10000",
+  "algoParams": [
+    {
+      "sortOrder": 1,
+      "name": "properties",
+      "value": "{\"annotators\": \"sentiment\", \"outputFormat\": \"json\"}",
+      "description": "Set the properties sent to the CoreNLP server.",
+      "dataType": {
+        "name": "string",
+        "regex": null,
+        "precision": null,
+        "scale": null,
+        "createdTimestamp": "2018-06-04T22:52:33.996873",
+        "updatedTimestamp": "2018-06-04T22:52:33.9968759"
+      },
+      "options": [],
+      "createdTimestamp": "2018-06-04T22:57:27.247996",
+      "updatedTimestamp": "2018-06-04T22:57:27.2479998"
+    }
+  ],
+  "inputs": [
+    {
+      "id": 1,
+      "name": "Text",
+      "description": "Text to analyse",
+      "isRequired": true,
+      "inputDeliveryType": "Http",
+      "parameter": null,
+      "parameterDelimiter": null,
+      "environmentVariable": null,
+      "httpVerb": "POST",
+      "httpPort": 9000,
+      "httpPath": "/",
+      "httpHeaders": null,
+      "mediaTypes": [
+        {
+          "title": "Any Text",
+          "typeName": "text",
+          "subTypeName": "any",
+          "fullTypeName": "text/any",
+          "fileExtension": null,
+          "rfc": null,
+          "rfcUrl": null,
+          "url": null,
+          "createdTimestamp": "0001-01-01T00:00:00",
+          "updatedTimestamp": "0001-01-01T00:00:00"
+        }
+      ],
+      "createdTimestamp": "2018-06-04T22:52:35.3287441",
+      "updatedTimestamp": "2018-06-04T22:52:35.3300709"
+    }
+  ],
+  "outputs": [
+    {
+      "id": 1,
+      "name": "json",
+      "description": "JSON output of annotations",
+      "outputDeliveryType": "StdOut",
+      "outputPath": null,
+      "outputFilename": null,
+      "mediaType": {
+        "title": "Any Text",
+        "typeName": "text",
+        "subTypeName": "any",
+        "fullTypeName": "text/any",
+        "fileExtension": null,
+        "rfc": null,
+        "rfcUrl": null,
+        "url": null,
+        "createdTimestamp": "2018-06-04T22:52:34.7813734",
+        "updatedTimestamp": "2018-06-04T22:52:34.7813823"
+      },
+      "createdTimestamp": "2018-06-04T22:52:35.3303072",
+      "updatedTimestamp": "2018-06-04T22:52:35.3319083"
+    }
+  ],
+  "pipelineRoutes": [
+    {
+      "routeType": "EndpointSource",
+      "pipelineEndpointSourceOutputName": "Default",
+      "pipelineDataSourceId": null,
+      "pipelineDataSource": null,
+      "pipelineDataSourceIndex": null,
+      "sourceAlgoOwnerName": null,
+      "sourceAlgoUrlName": null,
+      "sourceAlgoIndex": null,
+      "sourceAlgoOutputId": null,
+      "sourceAlgoOutput": null,
+      "pipelineDataSinkId": null,
+      "pipelineDataSink": null,
+      "pipelineDataSinkIndex": null,
+      "destAlgoOwnerName": "itsmarts",
+      "destAlgoUrlName": "CoreNLP-Sentiment-Analysis",
+      "destAlgoIndex": 1,
+      "destAlgoInputId": 1,
+      "destAlgoInput": {
+        "id": 1,
+        "name": "Text",
+        "description": "Text to analyse",
+        "isRequired": true,
+        "inputDeliveryType": "Http",
+        "parameter": null,
+        "parameterDelimiter": null,
+        "environmentVariable": null,
+        "httpVerb": "POST",
+        "httpPort": 9000,
+        "httpPath": "/",
+        "httpHeaders": null,
+        "mediaTypes": [
+          {
+            "title": "Any Text",
+            "typeName": "text",
+            "subTypeName": "any",
+            "fullTypeName": "text/any",
+            "fileExtension": null,
+            "rfc": null,
+            "rfcUrl": null,
+            "url": null,
+            "createdTimestamp": "0001-01-01T00:00:00",
+            "updatedTimestamp": "0001-01-01T00:00:00"
+          }
+        ],
+        "createdTimestamp": "2018-06-04T22:52:35.3287441",
+        "updatedTimestamp": "2018-06-04T22:52:35.3300709"
+      },
+      "createdTimestamp": "2018-06-04T22:57:27.2479865",
+      "updatedTimestamp": "2018-06-04T22:57:27.2479923"
+    }
+  ],
+  "gpuEnabled": false,
+  "timeoutSeconds": 60
+}
